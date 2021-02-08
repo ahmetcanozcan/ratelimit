@@ -100,6 +100,9 @@ func (o slackOption) apply(c *config) {
 // without any initial tolerance for bursts of traffic.
 var WithoutSlack Option = slackOption(0)
 
+// WithSlack configures custom slack.
+// Slack allows the limiter to accumulate previously unspend requests,
+// and burst up to that limit.
 func WithSlack(slack int) Option {
 	return slackOption(slack)
 }
